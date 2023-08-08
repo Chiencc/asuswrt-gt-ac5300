@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.18.3
 
 RUN apk --no-cache add --virtual .build-dependencies \
   autoconf \
@@ -15,7 +15,7 @@ COPY . ./
 RUN ./autogen.sh && ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var && make install
 
 
-FROM alpine:latest
+FROM alpine:3.18.3
 
 RUN apk --no-cache add \
   ca-certificates \
